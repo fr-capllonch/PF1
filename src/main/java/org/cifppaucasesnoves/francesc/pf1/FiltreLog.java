@@ -27,7 +27,7 @@ public class FiltreLog {
                             comptador =  comptador +1;
                     
                         }
-                    }
+                }
             }
 
             System.out.println(comptador);

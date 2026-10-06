@@ -3,6 +3,7 @@ package org.cifppaucasesnoves.francesc.pf1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.time.Duration;
@@ -44,6 +45,13 @@ public class AnalitzadorPrincipal {
         System.out.println(in.readLine());
 
         in.close();
+
+        InputStream err = fill.getErrorStream();
+
+        System.out.println(fill.exitValue());
+
+
+        System.out.println("RESULTAT: ERRORS=$errors | WARNINGS=$warnings | EXIT_CODE=$exits");
 
     }
 }
