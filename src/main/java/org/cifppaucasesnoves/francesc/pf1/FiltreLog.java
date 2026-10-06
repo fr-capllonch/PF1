@@ -9,25 +9,29 @@ public class FiltreLog {
         
         int comptador = 0;
 
-        try(BufferedReader in = new BufferedReader(new InputStreamReader(System.in))){
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 
         String missatge;
 
-            while((missatge = in.readLine()) != null){
-                String[] cercaError = missatge.split(" ");
+        while((missatge = in.readLine()) != null){
 
-            for (String cercaError1 : cercaError) {
-                if (cercaError1.contains("ERROR")) {
-                    comptador =  comptador +1;
-                }
-            }
+            if(missatge.isEmpty()){
+                    System.err.println("Error: text buit");
+                    System.exit(1);
+            }else{
+                    String[] cercaError = missatge.split(" ");
+
+                    for (String cercaError1 : cercaError) {
+                        if (cercaError1.contains("ERROR")) {
+                            comptador =  comptador +1;
+                    
+                        }
+                    }
             }
 
-        System.out.println(comptador);
-        }catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(comptador);
+            System.exit(0);
         }
-
-    }
+    }    
 }
