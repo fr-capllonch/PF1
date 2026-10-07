@@ -22,7 +22,21 @@ public class AnalitzadorPrincipal {
 
         Process fill = pb.start();
         try (BufferedWriter out = new BufferedWriter(new PrintWriter(fill.getOutputStream()))) {
-            String textProva = null;
+            String textProva = """
+                                           Another one got caught today, it's all over the papers.  "Teenager
+                                           Arrested in Computer Crime Scandal", "Hacker Arrested after Bank Tampering"...
+                                                   Damn kids.  They're all alike.
+                                                                    But did you, in your three-piece psychology and 1950's technobrain,
+                                           ever take a look behind the eyes of the hacker?  Did you ever wonder what
+                                           made him tick, what forces shaped him, what may have molded him?
+                                                   I am a hacker, enter my world... ERROR""" //
+                    //
+                    //
+                    //
+                    //
+                    //
+                    //
+                    ;
             
             out.write(textProva);
             out.newLine();
