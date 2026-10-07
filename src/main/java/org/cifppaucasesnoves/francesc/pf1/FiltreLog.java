@@ -7,31 +7,38 @@ public class FiltreLog {
     
     public static void main(String[] args) throws IOException, InterruptedException{
         
-        int comptador = 0;
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
+            boolean arxiuBuit = true;
 
-        String missatge;
+            int comptadorError = 0;
+            int comptadorFraseError = 0;
+            String frase;
+        
+            while((frase = in.readLine()) != null){
+                
+                if(frase.contains("ERROR")){comptadorFraseError++;}
 
-        while((missatge = in.readLine()) != null){
+                arxiuBuit = false;
+                String[] cercaError = frase.split(" ");
 
-            if(missatge.isEmpty()){
-                    System.err.println("Error: text buit");
-                    System.exit(1);
-            }else{
-                    String[] cercaError = missatge.split(" ");
-
-                    for (String cercaError1 : cercaError) {
-                        if (cercaError1.contains("ERROR")) {
-                            comptador =  comptador +1;
-                    
-                        }
+                for (String cercaError1 : cercaError) {
+                    if (cercaError1.contains("ERROR")) {
+                        comptadorError =  comptadorError +1;
+                            
+                    }
                 }
             }
 
-            System.out.println(comptador);
-            System.exit(0);
-        }
-    }    
+            if(arxiuBuit){
+                System.err.println("Error: text buit");
+                System.exit(1);
+            }else{      
+                System.out.println(comptadorError);
+                System.out.println(comptadorFraseError);
+                System.exit(0);
+            }
+    } 
+    
 }
