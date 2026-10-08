@@ -1,10 +1,10 @@
-package org.cifppaucasesnoves.francesc.pf1;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class FiltreLogError {
+public class FiltreLog {
     
     public static void main(String[] args) throws IOException, InterruptedException{
         
@@ -16,7 +16,7 @@ public class FiltreLogError {
             String paraulaCercar;
 
             if(args.length > 0) {
-                    paraulaCercar = "WARNING";
+                paraulaCercar = args[0];
             }else{
                 paraulaCercar = "ERROR";
             }
@@ -44,9 +44,7 @@ public class FiltreLogError {
                 System.err.println("Error: text buit");
                 System.exit(1);
             }else{      
-                System.out.print(comptadorError);
-                System.out.print(" ");
-                System.out.print(comptadorFraseError);
+                System.out.println(comptadorFraseError);
                 System.exit(0);
             }
     } 
